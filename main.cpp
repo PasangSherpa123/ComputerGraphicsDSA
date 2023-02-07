@@ -183,6 +183,9 @@ int main()
         int lol = player2_ask();
         display(a, lol, check);
         go = check_column(a);
+        diag = check_diagonal(a);
+        diag1 = checkDiagonal1(a);
+        row = checkRow(a);
         if (go==4 || diag == 10|| diag1 == 12 || row == 6) {
             break;
         }
