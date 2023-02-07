@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 int player1_ask()
+int player1_ask()
 {
     int pos;
     cout << " \nEnter the position to fill in " << endl;
@@ -80,7 +81,8 @@ int main()
 
     int count = 1;
     int *check = &count;
-    for (int i = 0; i < 3; i++)
+    int player1 = 0, player2 = 0;
+    while (player1 == 0 || player2 == 0)
     {
         int haha = player1_ask();
         display(a, haha, check);
