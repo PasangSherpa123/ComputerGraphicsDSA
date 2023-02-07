@@ -17,8 +17,7 @@ int player2_ask()
     cout << " \nEnter the position to fill in " << endl;
     cin >> pos;
     system("clear");
-    system("clear");
-    return pos;
+  return pos;
 }
 int checkRow(int array[7][7])
 {
