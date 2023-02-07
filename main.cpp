@@ -1,10 +1,12 @@
 #include <iostream>
+#include <stdlib.h>
 using namespace std;
 int player1_ask()
 {
     int pos;
     cout << " \nEnter the position to fill in " << endl;
     cin >> pos;
+    system("clear");
     return pos;
 }
 
@@ -14,7 +16,43 @@ int player2_ask()
     int pos;
     cout << " \nEnter the position to fill in " << endl;
     cin >> pos;
+    system("clear");
     return pos;
+}
+void checkRow(int array[7][7])
+{
+    for (int i = 6; i >= 0; i--)
+    {
+        for (int j = 0; j < 7; j++)
+        {
+            if (array[i][j] == 1 && array[i][j + 1] == 1 && array[i][j + 2] == 1 && array[i][j + 3] == 1)
+            {
+                cout << "Player 1 wins" << endl;
+            }
+            if (array[i][j] == 2 && array[i][j + 1] == 2 && array[i][j + 2] == 2 && array[i][j + 3] == 2)
+            {
+                cout << "Player 2 wins" << endl;
+            }
+        }
+    }
+}
+
+void checkDiagonal1(int array[7][7])
+{
+    for (int i = 0; i < 7; i++)
+    {
+        for (int j = 0; j < 7; j++)
+        {
+            if (array[i][j] == 1 && array[i + 1][j + 1] == 1 && array[i + 2][j + 2] == 1 && array[i + 3][j + 3] == 1)
+            {
+                cout << "Player 1 wins" << endl;
+            }
+            if (array[i][j] == 2 && array[i + 1][j + 1] == 2 && array[i + 2][j + 2] == 2 && array[i + 3][j + 3] == 2)
+            {
+                cout << "Player 2 wins" << endl;
+            }
+        }
+    }
 }
 void display(int display[7][7], int haha, int *check)
 {
@@ -24,7 +62,8 @@ void display(int display[7][7], int haha, int *check)
         if (display[i][haha - 1] == 0 && *check % 2 != 0)
         {
             display[i][haha - 1] = 1;
-
+            checkRow(display);
+            checkDiagonal1(display);
             break;
         }
 
@@ -32,6 +71,8 @@ void display(int display[7][7], int haha, int *check)
         {
 
             display[i][haha - 1] = 2;
+            checkRow(display);
+            checkDiagonal1(display);
             break;
         }
     }
@@ -122,7 +163,7 @@ int main()
     int count = 1;
     int *check = &count;
     int player1 = 0, player2 = 0;
-    while (player1 == 0 || player2 == 0)
+    while (player1 == 0 && player2 == 0)
     {
         int haha = player1_ask();
         display(a, haha, check);
