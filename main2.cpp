@@ -76,13 +76,13 @@ int check_column(int a[7][7])
 
             if (a[i][j] == 1 && a[i + 1][j] == 1 && a[i + 2][j] == 1 && a[i + 3][j] == 1)
             {
-                printf("\n Player 1 wins column \n ");
+                printf("\n Player 1 wins \n ");
                 return 3;
             }
 
             if (a[i][j] == 2 && a[i + 1][j] == 2 && a[i + 2][j] == 2 && a[i + 3][j] == 2)
             {
-                printf("\n Player 2 wins column \n ");
+                printf("\n Player 2 wins \n ");
                 return 4;
             }
         }
@@ -99,13 +99,13 @@ int check_diagonal(int a[7][7])
 
             if (a[i][j] == 1 && a[i + 1][j - 1] == 1 && a[i + 2][j - 2] == 1 && a[i + 3][j - 3] == 1)
             {
-                printf(" \nPlayer 1 wins diagonal ");
+                printf(" \nPlayer 1 wins ");
                 return 9;
                 break;
             }
             if (a[i][j] == 2 && a[i + 1][j - 1] == 2 && a[i + 2][j - 2] == 2 && a[i + 3][j - 3] == 2)
             {
-                printf(" \nPlayer 2 wins diagonal");
+                printf(" \nPlayer 2 wins ");
                 return 10;
                 break;
             }
@@ -121,12 +121,12 @@ int checkRow(int array[7][7])
         {
             if (array[i][j] == 1 && array[i][j + 1] == 1 && array[i][j + 2] == 1 && array[i][j + 3] == 1)
             {
-                printf("\n Player 1 wins row");
+                printf("\n Player 1 wins ");
                 return 5;
             }
             if (array[i][j] == 2 && array[i][j + 1] == 2 && array[i][j + 2] == 2 && array[i][j + 3] == 2)
             {
-                printf("\n player 2 wins  row");
+               printf("\n player 2 wins ");
                 return 6;
             }
         }
@@ -141,20 +141,20 @@ int checkDiagonal1(int array[7][7])
 
         for (int i = 0; i < 7; i++)
         {
-
-            if (array[i][j] == 1 && array[i - 1][j - 1] == 1 && array[i - 2][j - 2] == 1 && array[i - 3][j - 3] == 1)
-            {
-                cout << "Player 1 wins diagonal" << endl;
-                return 11;
-            }
-            if (array[i][j] == 2 && array[i - 1][j - 1] == 2 && array[i - 2][j - 2] == 2 && array[i - 3][j - 3] == 2)
-            {
-                cout << "Player 2 wins diagonal" << endl;
-                return 12;
+            
+                if (array[i][j] == 1 && array[i -1][j -1 ] == 1 && array[i - 2][j - 2] == 1 && array[i - 3][j - 3] == 1)
+                {
+                    cout << "Player 1 wins" << endl;
+                    return 11;
+                }
+                if (array[i][j] == 1 && array[i - 1][j - 1] == 1 && array[i - 2][j - 2] == 1 && array[i - 3][j - 3] == 1)
+                {
+                    cout << "Player 2 wins" << endl;
+                    return 12;
+                }
             }
         }
     }
-}
 int main()
 {
     int haha, lol;
@@ -180,18 +180,17 @@ int main()
         row = checkRow(a);
         diag1 = checkDiagonal1(a);
         if (go == 3)
-
+        
         {
             break;
         }
-        if (diag == 9)
-        {
+        if (diag == 9) {
             break;
         }
         if (row == 5)
-            break;
-        if (diag1 == 11)
-            break;
+        break;
+        if (diag1 ==11)
+        break;
         lol = player2_ask();
         display(a, lol, check);
         go = check_column(a);
@@ -202,11 +201,11 @@ int main()
         {
             break;
         }
-        if (diag == 10)
-            break;
-        if (row == 6)
-            break;
-        if (diag1 == 12)
-            break;
+        if (diag == 10) 
+        break;
+        if (row==6)
+        break;
+        if (diag1 == 12) 
+        break;
     }
 }
