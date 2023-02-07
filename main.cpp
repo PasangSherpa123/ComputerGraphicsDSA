@@ -1,21 +1,36 @@
 #include <iostream>
 using namespace std;
-int player_ask()
+int player1_ask() 
 {
     int pos;
-    cout << "Enter the position to fill in " << endl;
+    cout << " \nEnter the position to fill in " << endl;
     cin >> pos;
     return pos;
 }
-void display(int display[7][7], int haha)
+
+int player2_ask() {
+
+    int pos;
+    cout << " \nEnter the position to fill in " << endl;
+    cin >> pos;
+    return pos;
+}
+void display(int display[7][7], int haha, int *check)
 {
 
     for (int i = 6; i >= 0; i--)
     {
-        if (display[i][haha - 1] == 0)
+        if (display[i][haha - 1] == 0 && *check % 2 !=0)
         {
             display[i][haha - 1] = 1;
+            
             break;
+        }
+
+        else if (display[i][haha-1] == 0 && *check %2 == 0) {
+
+            display[i][haha-1] = 2;
+            break ;
         }
     }
     for (int i = 0; i < 7; i++)
@@ -23,11 +38,11 @@ void display(int display[7][7], int haha)
         for (int j = 0; j < 7; j++)
         {
 
-            if (display[i][j] == 1)
+            if (display[i][j] == 1 ) 
             {
                 cout << 'X' << "   |   ";
             }
-            else if (display[i][j] == 2)
+            else if (display[i][j] == 2 )
             {
                 cout << 'O' << "   |   ";
             }
@@ -43,6 +58,7 @@ void display(int display[7][7], int haha)
     {
         cout << i + 1 << "       ";
     }
+    ++*check;
 }
 
 void play_game()
@@ -60,10 +76,16 @@ int main()
         {0, 0, 0, 0, 0, 0, 0},
         {0, 0, 0, 0, 0, 0, 0}};
 
-    int haha = player_ask();
 
-    display(a, haha);
+int count = 1;
+int *check = &count;
+for (int i = 0;i<3;i++) {
+    int haha = player1_ask();
+    display(a, haha, check);
+    int lol = player2_ask();
+    display(a,lol,check);
+}
 
     return 0;
-    
+
 }
