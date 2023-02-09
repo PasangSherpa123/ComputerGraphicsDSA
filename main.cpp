@@ -45,23 +45,23 @@ void display(int display[7][7], int haha, int *check)
 
             if (display[i][j] == 1)
             {
-                cout << 'X' << "   |   ";
+                cout << 'X' << " | ";
             }
             else if (display[i][j] == 2)
             {
-                cout << 'O' << "   |   ";
+                cout << 'O' << " | ";
             }
             else
             {
                 cout << " "
-                     << "   |   ";
+                     << " | ";
             }
         }
         cout << endl;
     }
     for (int i = 0; i < 7; i++)
     {
-        cout << i + 1 << "       ";
+        cout << i + 1 << "   ";
     }
     ++*check;
 }
