@@ -20,6 +20,7 @@ int player1_ask()
 int player2_ask()
 {
     int pos;
+    cout<<"Ok"<<endl;
     random_device rd;
     mt19937 gen(rd());
     uniform_int_distribution<> dis(1, 7);
