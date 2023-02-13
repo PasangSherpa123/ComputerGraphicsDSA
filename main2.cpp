@@ -4,32 +4,44 @@
 #include <math.h>
 #include <cmath>
 #include <algorithm>
+#include <unordered_map>
+#include <vector>
 
 using namespace std;
 
 class Node
 {
+public:
     int arr[7][7];
-    int *check, haha;
+    int player;
+    vector<Node *> children;
 
-    Node(int *check1, int haha1, int arr1[7][7])
+    Node(int player, int arr[7][7])
     {
-        *check = *check1;
+        this->player = player;
         for (int i = 0; i < 7; i++)
         {
             for (int j = 0; j < 7; j++)
             {
-
-                arr[i][j] = arr1[i][j];
+                this->arr[i][j] = arr[i][j];
             }
         }
     }
 
+    void addChild(Node *child)
+    {
+        children.push_back(child);
+    }
 
-
-    
+    Node *getRandomChild()
+    {
+        random_device rd;
+        mt19937 gen(rd());
+        uniform_int_distribution<> dis(0, children.size() - 1);
+        int randomIndex = dis(gen);
+        return children[randomIndex];
+    }
 };
-
 int player1_ask()
 {
 

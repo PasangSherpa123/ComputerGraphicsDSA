@@ -1,6 +1,47 @@
 #include <iostream>
+#include <random>
 #include <stdlib.h>
+#include <math.h>
+#include <cmath>
+#include <algorithm>
+#include <unordered_map>
+#include <vector>
+
 using namespace std;
+
+class Node
+{
+public:
+    int arr[7][7];
+    int player;
+    vector<Node *> children;
+
+    Node(int player, int arr[7][7])
+    {
+        this->player = player;
+        for (int i = 0; i < 7; i++)
+        {
+            for (int j = 0; j < 7; j++)
+            {
+                this->arr[i][j] = arr[i][j];
+            }
+        }
+    }
+
+    void addChild(Node *child)
+    {
+        children.push_back(child);
+    }
+
+    Node *getRandomChild()
+    {
+        random_device rd;
+        mt19937 gen(rd());
+        uniform_int_distribution<> dis(0, children.size() - 1);
+        int randomIndex = dis(gen);
+        return children[randomIndex];
+    }
+};
 class Game
 {
 private:
