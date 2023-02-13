@@ -45,10 +45,20 @@ public:
 class Game
 {
 private:
-   
-public:
+    int a[7][7] = {
+        {0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0}};
 
-    int gameWon(int a[7][7])
+public:
+Game(int a[7][7]) {
+    
+}
+    int gameWon()
     {
         int won = 0;
         for (int j = 0; j < 7; j++)
@@ -177,18 +187,9 @@ public:
 
 int main()
 {
-     int a[7][7] = {
-        {0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0}};
-
     Game g;
     int player = 1, won = 0;
-    g.display(a);
+    g.display();
     while (won == 0)
     {
         player = g.askPos(player,a);
