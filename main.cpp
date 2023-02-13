@@ -222,7 +222,7 @@ void display(int display[7][7], int haha, int *check)
     }
     ++*check;
 }
-int check_column(int a[7][7])
+int check_column(int board[7][7])
 {
 
     for (int j = 0; j < 7; j++)
@@ -231,13 +231,13 @@ int check_column(int a[7][7])
         for (int i = 0; i < 7; i++)
         {
 
-            if (a[i][j] == 1 && a[i + 1][j] == 1 && a[i + 2][j] == 1 && a[i + 3][j] == 1)
+            if (board[i][j] == 1 && a[i + 1][j] == 1 && a[i + 2][j] == 1 && a[i + 3][j] == 1)
             {
                 printf("\n Player 1 wins column \n ");
                 return 3;
             }
 
-            if (a[i][j] == 2 && a[i + 1][j] == 2 && a[i + 2][j] == 2 && a[i + 3][j] == 2)
+            if (board[i][j] == 2 && a[i + 1][j] == 2 && a[i + 2][j] == 2 && a[i + 3][j] == 2)
             {
                 printf("\n Player 2 wins column \n ");
                 return 4;
@@ -246,7 +246,7 @@ int check_column(int a[7][7])
     }
 }
 
-int check_diagonal(int a[7][7])
+int check_diagonal(int board[7][7])
 {
     for (int j = 0; j < 7; j++)
     {
@@ -254,13 +254,13 @@ int check_diagonal(int a[7][7])
         for (int i = 0; i < 7; i++)
         {
 
-            if (a[i][j] == 1 && a[i + 1][j - 1] == 1 && a[i + 2][j - 2] == 1 && a[i + 3][j - 3] == 1)
+            if (board[i][j] == 1 && a[i + 1][j - 1] == 1 && a[i + 2][j - 2] == 1 && a[i + 3][j - 3] == 1)
             {
                 printf(" \nPlayer 1 wins diagonal ");
                 return 9;
                 break;
             }
-            if (a[i][j] == 2 && a[i + 1][j - 1] == 2 && a[i + 2][j - 2] == 2 && a[i + 3][j - 3] == 2)
+            if (board[i][j] == 2 && a[i + 1][j - 1] == 2 && a[i + 2][j - 2] == 2 && a[i + 3][j - 3] == 2)
             {
                 printf(" \nPlayer 2 wins diagonal");
                 return 10;
@@ -316,7 +316,7 @@ int main()
 {
     int haha, lol;
     int go, diag, diag1, row;
-    int a[7][7] = {
+    int board[7][7] = {
         {0, 0, 0, 0, 0, 0, 0},
         {0, 0, 0, 0, 0, 0, 0},
         {0, 0, 0, 0, 0, 0, 0},
@@ -332,10 +332,10 @@ int main()
     {
         haha = player1_ask();
         display(a, haha, check);
-        go = check_column(a);
-        diag = check_diagonal(a);
-        row = checkRow(a);
-        diag1 = checkDiagonal1(a);
+        go = check_column(board);
+        diag = check_diagonal(board);
+        row = checkRow(board);
+        diag1 = checkDiagonal1(board);
         if (go == 3)
 
         {
@@ -351,10 +351,10 @@ int main()
             break;
         lol = player2_ask();
         display(a, lol, check);
-        go = check_column(a);
-        diag = check_diagonal(a);
-        row = checkRow(a);
-        diag1 = checkDiagonal1(a);
+        go = check_column(board);
+        diag = check_diagonal(board);
+        row = checkRow(board);
+        diag1 = checkDiagonal1(board);
         if (go == 4)
         {
             break;
