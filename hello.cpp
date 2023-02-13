@@ -45,20 +45,8 @@ public:
 class Game
 {
 private:
-    int a[7][7] = {
-        {0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0}};
-
 public:
-Game(int a[7][7]) {
-    
-}
-    int gameWon()
+    int gameWon(int a[7][7])
     {
         int won = 0;
         for (int j = 0; j < 7; j++)
@@ -139,7 +127,7 @@ Game(int a[7][7]) {
         }
         return won;
     }
-    int askPos(int player,int a[7][7])
+    int askPos(int player, int a[7][7])
     {
         int pos;
         cout << " \nEnter the position to fill in " << endl;
@@ -173,7 +161,7 @@ Game(int a[7][7]) {
                 else
                 {
                     cout << " "
-                        << "   |   ";
+                         << "   |   ";
                 }
             }
             cout << endl;
@@ -188,11 +176,20 @@ Game(int a[7][7]) {
 int main()
 {
     Game g;
+    int a[7][7] = {
+        {0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0}};
+
     int player = 1, won = 0;
-    g.display();
+    g.display(a);
     while (won == 0)
     {
-        player = g.askPos(player,a);
+        player = g.askPos(player, a);
         g.display(a);
         won = g.gameWon(a);
     }
